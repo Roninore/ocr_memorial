@@ -36,7 +36,7 @@ def get_files_from_dir(dir_path: str=config.DEFAULT_INPUT_PATH, file_types: tupl
 
     files = []
     for ft in file_types:
-        files.extend(glob.glob(dir_path +'\*.' + ft))
+        files.extend(glob.glob(dir_path +'*.' + ft))
     
     return files
     
