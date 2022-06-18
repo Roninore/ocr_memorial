@@ -1,0 +1,6 @@
+venv
+temp
+input/
+output/
+__pycache__
+test.py
