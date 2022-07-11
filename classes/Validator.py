@@ -1,4 +1,3 @@
-from msilib.schema import Error
 from classes.DateValidator import DateValidator
 from classes.FullnameValidator import FullnameValidator
 
