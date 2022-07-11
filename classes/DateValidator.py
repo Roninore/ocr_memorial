@@ -29,7 +29,6 @@ class DateValidator():
     def __call__(self,raw_string: str='') -> dict:
         return self.get_dates(raw_string)
         
-
     def __validate_date(self,left:str,right:str,raw:str) -> dict:
         """Проверить дату формата yyyy-yyyy"""
         # Границы возможных дат

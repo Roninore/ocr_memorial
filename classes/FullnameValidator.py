@@ -111,4 +111,4 @@ class FullnameValidator():
             return answ
         except Exception as e:
             print('get name error -> ', e)
-            return raw_string
+            return ''

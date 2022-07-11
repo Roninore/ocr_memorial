@@ -13,9 +13,9 @@ from classes.Validator import Validator
 class PhotoReader():
     def __init__(self) -> None:
         start_time = time.time() # Таймер на лог о времени создания ридера
-        self.reader = easyocr.Reader(lang_list=config.OCR_LANG_LIST,gpu=config.OCR_GPU)
+        self.reader = easyocr.Reader(lang_list=config.OCR_LANG_LIST,gpu=config.OCR_GPU) # Создаем ридер
         print('Ready to read! ' + '({:.2f}s. to create reader)'.format(time.time() - start_time))
-        self.validator = Validator()
+        self.validator = Validator() # Объект валидатора
 
 
     def read_dir(self,dir_path: str=config.DEFAULT_INPUT_PATH, file_types: tuple=('jpg','png','jpeg')) -> list:
@@ -64,20 +64,20 @@ class PhotoReader():
             
             GPSdata = gpsphoto.getGPSData(path) # Геометки фотографии
 
-            return {'data': result, # Данные о прочитанном тексте
+            return {'finded_information': result, # Данные о прочитанном тексте
                     'filename': filename, # Название файла
                     'gps': GPSdata, # Геометки
-                    'time': '{:.2f}s.'.format(time.time() - start_time)} # Время на обработку фотографии
+                    'time': '{:.2f}s.'.format(time.time() - start_time),# Время на обработку фотографии
+                    'raw_information': raw_result} # Необработанные данные
 
         except Exception as e:
             print('Read photo easyocr error -> ', e)
             return {
-                    'data': {'full_name': '',
-                            'years': '',
-                            'filename': filename },
+                    'finded_information': [],
                     'gps': {'Latitude':'',
                             'Longitude':''},
-                    'time': '0' }
+                    'time': '0',
+                    'raw_information': raw_result}
 
 
 
