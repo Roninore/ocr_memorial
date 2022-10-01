@@ -6,3 +6,6 @@ Entry point - index.py
 ```
 pip install requirements.txt
 ```
+
+
+OCR для memorial35.ru
